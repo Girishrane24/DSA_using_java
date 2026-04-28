@@ -181,12 +181,12 @@ public class DoublyLL {
 	public int deletebyPos(int pos)
 	{
 		DoublyNode deletable; // Assign dummy variable
-		int d = -999;
+		int d;
 			
 		// check if your head is null or not.
 		if(head == null)
 		{
-			return d;
+			return -999;
 		}
 		// check if position is first location or not, if yes, then call deleteFirst method.
 		if(pos == 1)
@@ -199,19 +199,14 @@ public class DoublyLL {
 		DoublyNode itr = head; // assign head node to itr variable.
 		for(int i = 1; i<pos - 1 && itr.getNext() != null; itr = itr.getNext(), i++);
 		deletable = itr.getNext(); // Assign address of head node to deletable variable
-			
+		itr.setNext(itr.getNext().getNext());
 		// check if address of itr is not null
 		if(itr.getNext() != null)
 		{
-			itr.setNext(deletable.getNext()); // need to check if this line stiill required or not
+			deletable.getNext().setNext(itr);
 			d = deletable.getData();
-			deletable.setNext(null);
+			deletable.setPrev(null);
 			return d;
-		}
-		else
-		{
-			System.out.println("Position invalid"); // Position of delete node was exceed by length of linked list
-			return -999;
 		}
 	}
 	
