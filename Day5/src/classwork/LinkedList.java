@@ -2,7 +2,7 @@ package classwork;
 
 public class LinkedList {
 	
-	private IntNode head;
+	 IntNode head;
 	
 	public LinkedList() 
 	{
@@ -79,21 +79,21 @@ public class LinkedList {
 		// Initialize one variable deletable --> to navigate head
 		IntNode deletable;
 		// Check if head is null or not
-		// That means out linked list contain only one node
+		// That means our linked list contains only one node
 		if(head == null)
 		{
 			return -999; // Return some default value
 		}
 		// Assign value of deletable to head -- > 
 		deletable = head;
-		// get the data from head node 
+		// get the data from the head node 
 		int d = deletable.getData();
-		// get the address of next element of head
+		// get the address of the next element of the head
 		head = head.getNext();
 		// set the address of node to next null --> do that that first node will not point to any other node.
 		deletable.setNext(null);
 		
-		// Return the value of d that is current data node.
+		// Return the value of d, which is the current data node.
 		return d;
 	}
 	
@@ -112,26 +112,26 @@ public class LinkedList {
 			head = new_node;
 			return;
 		}
-		// check if position of insertion of node is at first position or not, if yes, then call insertFirst Method
+		// check if the position of insertion of the node is at the first position or not, if yes, then call the insertFirst Method
 	
 		if(p == 1)
 		{
 			insertFirst(d);
 			return;
 		}
-		// Insert node at middle of list or last of the list : 
+		// Insert node at the middle of the list or at the end of the list : 
 		IntNode itr = head; // assign head node to itr variable.
 		
 		/*
-		 * Iterate your head value till position - 1 location
-		 * also check if address of next node is not null, 
-		 * if found null, then stop iterating for loop, and return the current node address.
+		 * Iterate your head value till the position - 1 location
+		 * also check if the address of the next node is not null, 
+		 * If found null, then stop iterating the for loop, and return the current node address.
 		 */
 		for(int i = 1; i < p - 1 && itr.getNext() != null; i++)
 		{
 			itr = itr.getNext(); 
 		}
-		// set the address of new node to current node. so that you can traverse that linked list.
+		// set the new node's address to the current node. so that you can traverse that linked list.
 		new_node.setNext(itr.getNext());
 		// set the address of next_node to itr variable.
 		itr.setNext(new_node);
@@ -140,7 +140,7 @@ public class LinkedList {
 	
 	/*
 	 * Delete node by position
-	 * take the position of node form user 
+	 * Take the position of the node from the user 
 	 */
 	public int deleteByPos(int pos)
 	{
@@ -152,10 +152,10 @@ public class LinkedList {
 		{
 			return d;
 		}
-		// check if position is first location or not, if yes, then call deleteFirst method.
+		// check if the position is the first location; if so, call the deleteFirst method.
 		if(pos == 1)
 		{
-		d = deleteFirst(); // call deleteFirst method and return value of d
+		d = deleteFirst(); // call the deleteFirst method and return the value of d
 		return d; 
 		}
 		
@@ -164,7 +164,7 @@ public class LinkedList {
 		for(int i = 1; i<pos - 1 && itr.getNext() != null; itr = itr.getNext(), i++);
 		deletable = itr.getNext(); // Assign address of head node to deletable variable
 		
-		// check if address of itr is not null
+		// check if the address of ITR is not null
 		if(itr.getNext() != null)
 		{
 			itr.setNext(deletable.getNext()); // need to check if this line stiill required or not
@@ -174,13 +174,13 @@ public class LinkedList {
 		}
 		else
 		{
-			System.out.println("Position invalid"); // Position of delete node was exceed by length of linked list
+			System.out.println("Position invalid"); // Position of delete node exceeded the length of the linked list
 			return -999;
 		}
 	}
 	
 	/*
-	 * delete the last node from linked list
+	 * delete the last node from the linked list
 	 */
 	public int deleteLast()
 	{
@@ -197,7 +197,7 @@ public class LinkedList {
 			return d;
 		}
 		
-		// check if next.next node was null or not
+		// check if next. next node was null or not
 		while(itr.getNext().getNext() != null)
 		{
 			itr = itr.getNext();
@@ -269,7 +269,7 @@ public class LinkedList {
 		}
 	}
 	/*
-	 * Print the alternate nodes of linked list 
+	 * Print the alternate nodes of the linked list 
 	 */
 	public void alternateNodes()
 	{
@@ -291,26 +291,6 @@ public class LinkedList {
 	public void swapAlternateNodes()
 	{
 		
-	}
-	
-	/* 
-	 * Reverse Linked List
-	 *  
-	 */
-	public void reverseLinkedList()
-	{
-		IntNode prev = null;
-		IntNode next;
-		IntNode curr = head.getNext();
-		
-		while(curr != null)
-		{
-			next = curr.getNext();
-			curr.setNext(prev);
-			prev = curr;
-			curr = next;
-		}
-		head = prev;
 	}
 	
 	public void deletelist()
