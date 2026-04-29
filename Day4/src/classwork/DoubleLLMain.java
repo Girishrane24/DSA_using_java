@@ -13,7 +13,7 @@ public static void main(String[] args) {
 		// Initialize variable for cases and number num
 		int ch;
 		int num;
-		int d;
+		//int d;
 		int pos;
 		do
 		{
