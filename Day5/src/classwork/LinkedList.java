@@ -24,7 +24,7 @@ public class LinkedList {
 		{
 			
 		}
-	
+	System.out.println("head is  : " + head);
 	new_node.setNext(head);
 	head = new_node;
 	}
