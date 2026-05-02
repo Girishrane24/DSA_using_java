@@ -392,6 +392,7 @@ public class BinaryTree {
 			return left + 1;
 		else
 			return right + 1;
+		
 	}
 	
 	public void search(int d)
