@@ -395,6 +395,32 @@ public class BinaryTree {
 		
 	}
 	
+	public void del(int d)
+	{
+		root = del_rec(root,d);
+	}
+	
+	public BTNode del_rec(BTNode ptr, int d)
+	{
+		
+		BTNode deletable;
+		if(ptr == null)
+		{
+			System.out.println("Not Found");
+			return null;
+		}
+		if(d < ptr.getData())
+		{
+			ptr.setData(del_rec(ptr.getLeft(),d));
+		}
+			
+		return ptr;
+	}
+	
+	
+	
+	
+	
 	public void search(int d)
 	{
 		BTNode new_node = createNode(d);
