@@ -411,7 +411,7 @@ public class BinaryTree {
 		}
 		if(d < ptr.getData())
 		{
-			ptr.setData(del_rec(ptr.getLeft(),d));
+			//ptr.setData(del_rec(ptr.getLeft(),d));
 		}
 			
 		return ptr;
